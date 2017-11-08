@@ -13,21 +13,23 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
+  host: 107.180.40.21
+  username: ThePudgyPlatypi
   password: funky123
-  host: localhost
+  port: 3306
   socket: /var/run/mysqld/mysqld.sock
+  timeout: 5000
 
 development:
   <<: *default
-  database: workoutAPI_development
+  database: workout_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: workoutAPI_test
+  database: workout_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,6 +52,6 @@ test:
 #
 production:
   <<: *default
-  database: workoutAPI_production
+  database: workout_production
   username: workout
   password: funky123 <%= ENV['WORKOUT_DATABASE_PASSWORD'] %>
